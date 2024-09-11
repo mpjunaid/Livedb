@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livedb: Effortless Parameter Storage</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+<body>
+  <h1>Livedb: Your Global, Effortless Parameter Storage</h1>
+  <p>Tired of the complexities of setting up and managing databases? Livedb offers a streamlined solution, allowing you to store and retrieve key-value pairs with minimal effort.</p>
+
+  <h2>Key Features</h2>
+  <ul>
+    <li>Global Accessibility: Access your data from anywhere with a simple HTTP request.</li>
+    <li>Simplified Integration: Implement Livedb in your projects using our pre-built JavaScript, Python, and Go libraries.</li>
+    <li>Rapid Development: Store and retrieve data in just a few lines of code.</li>
+  </ul>
+
+  <h2>Advantages</h2>
+  <ul>
+    <li>Reduced Development Time: Eliminate the overhead of database setup and management.</li>
+    <li>Scalability: Handle increasing data loads without complex infrastructure changes.</li>
+    <li>Global Reach: Access your data from any device with an internet connection.</li>
+    <li>Simplified Integration: Easily incorporate Livedb into your existing projects.</li>
+  </ul>
+
+  <h3>Sign Up for Livedb</h3>
+  <form form id="signup-form" action="/sign_up" method="POST">
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+    <button type="submit">Sign Up</button>
+  </form> 
+  <div id="response"></div>
+
+
+  <script src="{{ url_for('static', filename='form_submit.js') }}"></script>
+
+</body>
+</html>
