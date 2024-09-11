@@ -6,7 +6,7 @@ import os
 class SendEmail:
     def __init__(self):
         self.sender_email = "livedb.free@gmail.com"
-        self.key_file_path = "key.key"
+        self.key_file_path = "./key.key"
 
     def send_email(self, receiver_email, user_code):
         # Read the app code from the key file
