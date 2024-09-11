@@ -50,9 +50,7 @@ def insert_value():
     value = request.json.get("value")
 
     if not user or not key or not value:
-        return jsonify(
-            {"message": "Missing required data (user_code, key, or value)"}, 400
-        )
+        return jsonify({"message": "Missing required data (user_code, key, or value)"})
     exists, num_keys = database.user_exist(user)
 
     if exists:
