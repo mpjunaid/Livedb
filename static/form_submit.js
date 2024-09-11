@@ -16,10 +16,11 @@ function handleResponse(response) {
     })
     .then(response => response.json())
     .then(data => {
-      if (data.created) {
-        handleResponse("New user code created. Please check your email:"+ email +" for the code. User code:"+data.key);
+      console.log(data.message)
+      if (data.user_status) {
+        handleResponse("New user code created. "+ data.message);
       } else {
-        handleResponse("User code already exists. Email sent to "+ email +" with the existing code. User code:"+data.key);
+        handleResponse("User code already exists. "+ data.message);
       }
     })
     .catch(error => console.error('Error:', error));

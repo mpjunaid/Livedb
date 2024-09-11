@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 from utility_functions import generate_unique_string
 from database import Livedb
+from sendemail import SendEmail
 
 
 port = 5000  # Global parameter
@@ -20,9 +21,16 @@ def sign_up():
     database = Livedb()
     email = request.form.get("email")
     user_code, success = database.insert_user(email)
+    sendemails = SendEmail()
 
-    data = {"key": user_code, "created": success}
+    send_status = sendemails.send_email(email, user_code)
+    if send_status:
+        message = "Email sent successfully to " + email
+    else:
+        message = "Error sending email to " + email
+    data = {"message": message, "created": send_status, "user_status": success}
     database.close_connection()
+    print(data)
 
     return jsonify(data)
 
