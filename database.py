@@ -63,9 +63,10 @@ class Livedb:
         else:
             return False, result[1]
 
-    def update_last_used(self, email):
+    def update_last_used(self, user_code):
         self.cursor.execute(
-            "UPDATE users SET last_used=CURRENT_TIMESTAMP WHERE email=?", (email,)
+            "UPDATE users SET last_used=CURRENT_TIMESTAMP WHERE user_code=?",
+            (user_code,),
         )
         self.conn.commit()
 

@@ -1,29 +1,112 @@
-# Livedb: Your Global, Effortless Parameter Storage
+# Livedb: Your Effortless Key-Value Storage Solution
 
-Tired of the complexities of setting up and managing databases? Livedb offers a streamlined solution, allowing you to store and retrieve key-value pairs with minimal effort.
+Livedb simplifies storing and retrieving key-value pairs with minimal setup.
 
-## Key Features:
+Access your data from anywhere using HTTP requests and integrate it into your projects with pre-built libraries.
 
-- Global Accessibility: Access your data from anywhere with a simple HTTP request.
-- Simplified Integration: Implement Livedb in your projects using our pre-built JavaScript, Python, and Go libraries.
-- Rapid Development: Store and retrieve data in just a few lines of code.
+### Key Features
 
-## Example Usage:
+- **Global Accessibility**: Reach your data from any device with an internet connection.
+- **Simplified Integration**: Leverage pre-built JavaScript, Python, and Go libraries. Go and Javascipt classes are in making and will be updated soon.
+- **Rapid Development**: Store and retrieve data with just a few lines of code.
+  Benefits
+- **Reduced Development Time**: Focus on your application logic, not database management.
+- **Scalability**: Handle increasing data loads without complex infrastructure changes.
+- **Global Reach**: Access your data from anywhere with internet connectivity.
+- **Simplified Integration**: Easily incorporate Livedb into your existing projects.
 
-```JavaScript
-const Livedb = require('livedb');
+## LiveDB Class: Instruction Manual
 
-const user = Livedb.connect();
-console.log(user.uniqueCode); // Unique identifier for the user
+LiveDB is a Python class for interacting with a remote database service. It provides functionalities for CRUD (Create, Read, Update, Delete) operations on key-value pairs associated with a unique user code.
 
-user.parameter('name', 'John Doe');
-console.log(user.parameter('name')); // Output: John Doe
+### Prerequisites
+
+- Python 3.x
+- requests library (installation: pip install requests)
+
+### Obtaining User Code
+
+- Visit https://livedb.pythonanywhere.com/.
+  -Register with your email address.
+  -You'll receive an email containing your unique user code.
+
+      Important Note: User data are automatically deleted if inactive for three consecutive days.
+
+### Installation
+
+1. Dowload the `Livedb_client.py` file the guthub repo.(You can copy paste too)
+2. `from Livedb_cleint import livedb`
+
+### Using LiveDB for CRUD operations
+
+1. Initialization
+
+Replace <your_user_code> with your user code from the registration email:
+
+```Python
+from Livedb_cleint import liveDB
+user_code = "<your_user_code>"
+livedb = LiveDB(user_code)
+
 ```
 
-### Advantages:
+Returns a class object of LiveDB class on success. Otherwise an error message if the user_code is not valid or if the livedb server is down.
 
-- Reduced Development Time: Eliminate the overhead of database setup and management.
-- Scalability: Handle increasing data loads without complex infrastructure changes.
-- Global Reach: Access your data from any device with an internet connection.
-  Simplified
-- Integration: Easily incorporate Livedb into your existing - projects.
+2. Create (Insert):
+
+Stores a new key-value pair.
+
+```Python
+key = "new_key"
+value = "This is some new data"
+livedb.insert(key, value)
+```
+
+Returns True on success. Otherwise, an error message is printed.
+
+3. Read (Get):
+
+Retrieves the value associated with a specific key.
+
+```
+Python
+key = "existing_key"
+retrieved_value = livedb.read(key)
+```
+
+Returns the value if the key exists. Otherwise, an error message is printed.
+
+4. Update (Not directly supported):
+
+LiveDB doesn't have a direct update method. To modify existing data just use the same create/insert function. If the key already exist it gets updated.
+
+5. Delete (Delete Key):
+
+Removes a key-value pair from the database.
+
+```Python
+key = "key_to_delete"
+livedb.delkey(key)
+```
+
+Returns True on success. Otherwise, an error message is printed.
+
+6. Listing All Key-Value Pairs
+
+Retrieves a list of all key-value pairs associated with your user code.
+
+```Python
+all_values = livedb.list()
+for key_value_pair in all_values:
+    print(key_value_pair)
+```
+
+7. Deleting All User Keys
+
+Permanently removes all key-value pairs associated with your user code.
+
+```Python
+livedb.delete_user_keys()
+```
+
+Returns True on success. Otherwise, an error message is printed.
