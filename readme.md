@@ -6,14 +6,11 @@ Access your data from anywhere using HTTP requests and integrate it into your pr
 
 ### Key Features
 
-- **Global Accessibility**: Reach your data from any device with an internet connection.
-- **Simplified Integration**: Leverage pre-built JavaScript, Python, and Go libraries. Go and Javascipt classes are in making and will be updated soon.
-- **Rapid Development**: Store and retrieve data with just a few lines of code.
-  Benefits
-- **Reduced Development Time**: Focus on your application logic, not database management.
-- **Scalability**: Handle increasing data loads without complex infrastructure changes.
-- **Global Reach**: Access your data from anywhere with internet connectivity.
-- **Simplified Integration**: Easily incorporate Livedb into your existing projects.
+- **Global Accessibility:** Access data from any internet-connected device.
+
+- **Simplified Integration:** Use pre-built libraries for JavaScript, Python, and Go (JavaScript and Go libraries are under development).
+
+- **Rapid Development:** Store and retrieve data with minimal code.
 
 ## LiveDB Class: Instruction Manual
 
